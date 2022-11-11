@@ -1,0 +1,70 @@
+{
+  "name": "nestjs-bitcoin-rpc-client",
+  "version": "1.0.0",
+  "description": "Bitcoin RPC Client Module for NestJS",
+  "author": {
+    "name": "Mahsum UREBE",
+    "email": "info@mahsumurebe.com",
+    "url": "https://www.mahsumurebe.com/"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*",
+    "*.md"
+  ],
+  "scripts": {
+    "prepack": "npm run build",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage"
+  },
+  "keywords": [
+    "bitcoin",
+    "bitcoin",
+    "rpc",
+    "nestjs",
+    "library"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mahsumurebe/nestjs-bitcoin-rpc-client"
+  },
+  "bugs": {
+    "url": "https://github.com/mahsumurebe/nestjs-bitcoin-rpc-client/issues",
+    "email": "info@mahsumurebe.com"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^9.0.0",
+    "@nestjs/core": "^9.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.2.0"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^9.0.0",
+    "@nestjs/core": "^9.0.0",
+    "@nestjs/testing": "^9.2.0",
+    "@types/jest": "^28.1.4",
+    "@types/node": "^18.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "'8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jest": "28.1.2",
+    "rxjs": "^7.2.0",
+    "ts-jest": "28.0.5",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "@mahsumurebe/jrpc-client": "^2.1.0"
+  }
+}

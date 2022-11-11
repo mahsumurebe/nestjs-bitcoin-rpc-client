@@ -1,0 +1,36 @@
+name: Test Module
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [ opened, reopened, ready_for_review ]
+  workflow_call:
+
+env:
+  RPC_USER: rpcuser
+  RPC_PASS: rpcpass
+  RPC_PORT: 8332
+
+jobs:
+  build-and-test:
+    name: "Build and Test"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install Bitcoin Daemon
+        run: |
+          wget https://bitcoin.org/bin/bitcoin-core-22.0/bitcoin-22.0-x86_64-linux-gnu.tar.gz --progress=bar:force 2>&1 | tail -f -n +6
+          tar -xzvf bitcoin-22.0-x86_64-linux-gnu.tar.gz -C /tmp
+      - name: Start Bitcoin Daemon on Regtest Mode
+        run: (cd /tmp/bitcoin-22.0/bin/; ./bitcoind -regtest=1 -rpcuser="${RPC_USER}" -rpcpassword="${RPC_PASS}" -rpcport="${RPC_PORT}" -listen=0  -server=1 -txindex=1 -daemon=1)
+      - name: Install dependencies
+        run: npm i
+      - name: Test
+        run: npm test
+      - name: Stop Bitcoin Daemon
+        run: |
+          curl -v --data-binary '{"jsonrpc": "1.0", "id": "stopping", "method": "stop", "params": []}' -H 'content-type: text/plain;' "http://${RPC_USER}:${RPC_PASS}@127.0.0.1:${RPC_PORT}/"

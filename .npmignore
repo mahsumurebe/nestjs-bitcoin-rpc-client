@@ -1,0 +1,10 @@
+.idea/
+.github/
+node_modules/
+src/
+tests/
+.eslintrc.js
+.gitignore
+jest.config.json
+tsconfig*.json
+*.tgz
