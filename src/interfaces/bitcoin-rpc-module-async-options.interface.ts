@@ -1,5 +1,5 @@
 import { ModuleMetadata, Type } from '@nestjs/common';
-import { HttpAdapterConfigInterface } from '@mahsumurebe/jrpc-client';
+import { BitcoinRpcModuleOptionsInterface } from "./bitcoin-rpc-module-options.interface";
 
 /**
  * Bitcoin RPC Module Async Options Interface
@@ -9,10 +9,10 @@ import { HttpAdapterConfigInterface } from '@mahsumurebe/jrpc-client';
 export interface BitcoinRpcModuleAsyncOptionsInterface
   extends Pick<ModuleMetadata, 'imports'> {
   connectionName?: string;
-  useExisting?: Type<HttpAdapterConfigInterface>;
-  useClass?: Type<HttpAdapterConfigInterface>;
+  useExisting?: Type<BitcoinRpcModuleOptionsInterface>;
+  useClass?: Type<BitcoinRpcModuleOptionsInterface>;
   useFactory?: (
     ...args: any[]
-  ) => Promise<HttpAdapterConfigInterface> | HttpAdapterConfigInterface;
+  ) => Promise<BitcoinRpcModuleOptionsInterface> | BitcoinRpcModuleOptionsInterface;
   inject?: any[];
 }
