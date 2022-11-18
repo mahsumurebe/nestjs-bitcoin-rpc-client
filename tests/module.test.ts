@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { BitcoinRpcClientModule, BlockchainRpcService } from '../src';
+import { ServerErrorException } from '@mahsumurebe/jrpc-client';
 // FUTURE fill all tests
 describe('Module Tests', () => {
   let moduleRef: TestingModule;
@@ -63,6 +64,11 @@ describe('Module Tests', () => {
           expect(blockData).toEqual(expect.any(Object));
           expect(blockData).toHaveProperty('tx');
           expect(typeof blockData.tx[0]).toEqual('object');
+        });
+        it('should return error class instance', async () => {
+          await expect(blockchainRpcService.getBlock('foo')).rejects.toThrow(
+            ServerErrorException,
+          );
         });
       });
     });
