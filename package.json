@@ -1,6 +1,6 @@
 {
   "name": "nestjs-bitcoin-rpc-client",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Bitcoin RPC Client Module for NestJS",
   "author": {
     "name": "Mahsum UREBE",
