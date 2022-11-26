@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.0](https://github.com/mahsumurebe/nestjs-bitcoin-rpc-client/tree/1.1.0) (2022-11-26)
+
+[Full Changelog](https://github.com/mahsumurebe/nestjs-bitcoin-rpc-client/compare/1.0.2...1.1.0)
+
 ## [1.0.2](https://github.com/mahsumurebe/nestjs-bitcoin-rpc-client/tree/1.0.2) (2022-11-18)
 
 [Full Changelog](https://github.com/mahsumurebe/nestjs-bitcoin-rpc-client/compare/1.0.1...1.0.2)
